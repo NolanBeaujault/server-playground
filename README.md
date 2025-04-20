@@ -64,7 +64,7 @@ You will see a JSON response with system information such as uptime, CPU load, a
 
 ## 🐳 Docker Icons & Badges
 
-[![Docker Image Size](https://img.shields.io/docker/image-size/your_username/server-playground-api)](https://hub.docker.com/r/your_username/server-playground-api)
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" width="40" />
 
 ## 🤝 Contribute
 
