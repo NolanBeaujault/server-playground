@@ -1,8 +1,11 @@
 import { Hono } from "hono";
 import { serve } from "@hono/node-server";
 import os from "os";
+import { loggerMiddleware } from "./middleware.logger.ts";
 
 const app = new Hono();
+
+app.use("*", loggerMiddleware);
 
 app.get("/", (c) => c.text("🧠 Server Playground is up and running!"));
 
@@ -11,7 +14,7 @@ app.get("/metrics", (c) => {
   const totalMem = os.totalmem();
   const freeMem = os.freemem();
   const usedMem = totalMem - freeMem;
-  const cpuLoad = os.loadavg()[0]; // Mean CPU load over the last minute
+  const cpuLoad = os.loadavg()[0];
 
   return c.json({
     uptimeSeconds: uptime,
@@ -29,4 +32,4 @@ serve({
   port: 3000,
 });
 
-console.log("Server is running on http://localhost:3000");
+console.log("✅ Server running on http://localhost:3000");

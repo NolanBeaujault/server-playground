@@ -9,4 +9,5 @@ COPY api ./
 
 EXPOSE 3000
 
-CMD ["npx", "ts-node", "index.ts"]
+CMD ["node", "--loader", "ts-node/esm", "index.ts"]
+
