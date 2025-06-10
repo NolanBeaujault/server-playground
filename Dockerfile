@@ -1,13 +1,21 @@
+# First step : base image
 FROM node:20-alpine
 
+# Second step : set working directory
 WORKDIR /app
 
-COPY api/package*.json ./
+# Third step : copy package.json and package-lock.json
+COPY package*.json ./
+
+# Fourth step : install dependencies
 RUN npm install
 
-COPY api ./
+# Fifth step : copy the rest of the application code
+COPY . .
 
+# Sixth step : expose the port the app runs on
 EXPOSE 3000
 
-CMD ["node", "--loader", "ts-node/esm", "index.ts"]
+# Seventh step : define the command to run the app
+CMD ["npx", "ts-node", "src/index.ts"]
 

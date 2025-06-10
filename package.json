@@ -1,0 +1,31 @@
+{
+  "name": "server-playground",
+  "version": "1.0.0",
+  "description": "A lightweight API to monitor local or remote server metrics — built with [Hono.js](https://hono.dev/), Docker, and Typescript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NolanBeaujault/server-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NolanBeaujault/server-playground/issues"
+  },
+  "homepage": "https://github.com/NolanBeaujault/server-playground#readme",
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.4",
+    "hono": "^4.7.11"
+  }
+}
