@@ -1,91 +1,123 @@
 # Server Playground
 
-A lightweight API to monitor local or remote server metrics — built with [Hono.js](https://hono.dev/), Docker, and Typescript.
+A lightweight API to monitor local or remote server metrics — built with [Hono.js](https://hono.dev/), Docker, and TypeScript.
 
 ---
 
-## What it Does
+## What It Does
 
-Simple endpoints to check system status:
+Minimal REST API exposing system metrics:
 
 | Endpoint   | Description                            |
 | ---------- | -------------------------------------- |
-| `/`        | Health check (server is up)            |
+| `/`        | Health check (confirms server is up)   |
 | `/metrics` | Returns uptime, memory usage, CPU load |
 
 ---
 
 ## Stack
 
-- **Hono.js** — ultralight web framework
-- **Docker** — containerization for deployment
-- **Node.js 20+** — runtime environment
+- **Hono.js** — minimalist web framework for building APIs
+- **Node.js 20+** — JavaScript runtime
+- **TypeScript** — type-safe modern JavaScript
+- **Docker** — containerized local development
+- **Docker Compose** — orchestration of local services
+- **Nodemon + ts-node** — automatic reload on file change during development
 
 ---
 
-## Getting Started
+## Development Setup
 
-Clone and install:
+### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/server-playground.git
+git clone https://github.com/NolanBeaujault/server-playground.git
 cd server-playground
+```
+
+### Install dependencies
+
+```bash
 npm install
 ```
 
-Run locally:
+### Run locally without Docker
 
 ```bash
-npx ts-node index.ts
+npm run dev
 ```
 
-Or use Docker:
+### Run using Docker Compose
 
 ```bash
-docker build -t server-playground-api .
-docker run -p 3000:3000 server-playground-api
+docker compose up --build
 ```
 
-> Open in browser: [localhost:3000](http://localhost:3000)
+> The application will be accessible on [localhost:3000](http://localhost:3000)
 
 ---
 
-## Customize It
+## File Structure (Current)
 
-Make it yours:
-
-- Add or replace endpoints
-- Use `.env` for secrets or configuration
-- Extend `/metrics` with more detailed system info
+```
+server-playground/
+│
+├── src/
+│   └── index.ts           # API entrypoint
+│
+├── Dockerfile             # Dev-oriented Dockerfile
+├── docker-compose.yml     # Container orchestration
+├── .env                   # Local environment variables (e.g., port)
+├── package.json           # Project metadata and scripts
+├── tsconfig.json          # TypeScript configuration
+```
 
 ---
 
-## Why?
+## Features to Build Next
 
-Built as a personal sandbox to play with backend performance monitoring, containers, and clean architecture. No bloat, no dependencies you don't need.
+This section tracks upcoming improvements.
+
+- [ ] Add persistent logging (e.g., Winston or Pino)
+- [ ] Export metrics in Prometheus-compatible format
+- [ ] Add authentication for `/metrics` endpoint
+- [ ] Add system details per endpoint (`/cpu`, `/ram`, etc.)
+- [ ] Add dashboard frontend to visualize metrics
+- [ ] Prepare production-ready Dockerfile and multi-stage build
 
 ---
 
-## Contributing
+## Why This Exists
 
-Open to PRs, feedback, or just curious developers dropping by:
+This project serves as a personal playground to:
 
-1. Fork the project
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -am 'Add feature'`)
+- Practice building minimal web APIs
+- Get familiar with Docker/Docker Compose workflows
+- Explore performance monitoring and containerized development
+- Iterate with clean, scalable architecture from day one
+
+---
+
+## How to Contribute
+
+You're welcome to fork the project, explore, or submit improvements:
+
+1. Fork this repo
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Make your changes
 4. Push to your branch (`git push origin feature/your-feature`)
-5. Open a pull request for review
+5. Open a pull request
 
 ---
 
 ## License
 
-MIT — free to use, remix, or break things.
+MIT — free to use, remix, and distribute.
 
 ---
 
 ## Badges
 
-[![Node.js](https://img.shields.io/static/v1?label=Node.js&message=v20%2B&color=6cc24a&style=flat-square&logo=node.js)](https://nodejs.org)  
-[![Docker](https://img.shields.io/static/v1?label=Docker&message=Ready&color=2496ed&style=flat-square&logo=docker)](https://www.docker.com)  
+[![Node.js](https://img.shields.io/static/v1?label=Node.js&message=v20%2B&color=6cc24a&style=flat-square&logo=node.js)](https://nodejs.org)
+[![Docker](https://img.shields.io/static/v1?label=Docker&message=Ready&color=2496ed&style=flat-square&logo=docker)](https://www.docker.com)
 [![MIT License](https://img.shields.io/static/v1?label=License&message=MIT&color=yellow&style=flat-square)](LICENSE)

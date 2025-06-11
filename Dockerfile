@@ -1,21 +1,21 @@
-# First step : base image
+# Base image
 FROM node:20-alpine
 
-# Second step : set working directory
+# Env
+ENV NODE_ENV=development
+
+# Set working dir
 WORKDIR /app
 
-# Third step : copy package.json and package-lock.json
+# Copy and install dependencies
 COPY package*.json ./
-
-# Fourth step : install dependencies
 RUN npm install
 
-# Fifth step : copy the rest of the application code
+# Copy app
 COPY . .
 
-# Sixth step : expose the port the app runs on
+# Expose port
 EXPOSE 3000
 
-# Seventh step : define the command to run the app
-CMD ["npx", "ts-node", "src/index.ts"]
-
+# Default command for development
+CMD ["npm", "run", "start:dev"]

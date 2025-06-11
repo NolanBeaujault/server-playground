@@ -1,0 +1,25 @@
+# Node.js stuff
+node_modules
+npm-debug.log
+pnpm-lock.yaml
+yarn.lock
+
+# IDE & OS files
+.DS_Store
+.vscode
+.idea
+
+# Logs
+logs
+*.log
+
+# Typescript build output (si tu buildes un jour)
+dist
+build
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Env vars
+.env
