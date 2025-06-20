@@ -121,3 +121,5 @@ MIT — free to use, remix, and distribute.
 [![Node.js](https://img.shields.io/static/v1?label=Node.js&message=v20%2B&color=6cc24a&style=flat-square&logo=node.js)](https://nodejs.org)
 [![Docker](https://img.shields.io/static/v1?label=Docker&message=Ready&color=2496ed&style=flat-square&logo=docker)](https://www.docker.com)
 [![MIT License](https://img.shields.io/static/v1?label=License&message=MIT&color=yellow&style=flat-square)](LICENSE)
+![CI](https://github.com/NolanBeaujault/server-playground/actions/workflows/ci.yml/badge.svg)
+
